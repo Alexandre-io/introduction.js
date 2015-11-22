@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc4/angular-material.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  <link href="../src/introduction.css" rel="stylesheet">
+  <meta name="viewport" content="initial-scale=1" />
+</head>
+
+<body layout="column">
+  <md-toolbar layout="row">
+    <div class="md-toolbar-tools">
+      <h1>Introduction.js</h1>
+    </div>
+  </md-toolbar>
+  <div layout="row" flex style="padding:16px;">
+    <div layout="column" flex id="content">
+      <md-content layout="column" flex class="md-padding">
+
+        <div class="page">
+          <h1 data-step="1" data-intro="This is the title!">Untitled document</h1>
+          <p data-step="2" data-intro="This is the first paragraph!">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet
+            fermentum. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+          <p data-step="3" data-intro="This is the second paragraph!">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+            et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+          <p data-step="4" data-intro="This is the last paragraph!">Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+        </div>
+
+      </md-content>
+    </div>
+  </div>
+
+  <script src="../src/introduction.js"></script>
+
+  <script>
+    // Example with native version
+    introductionjs()
+      .setOptions({
+        'showProgress': true
+      })
+      .start();
+  </script>
+</body>
+
+</html>

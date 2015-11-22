@@ -1,0 +1,21 @@
+{
+  "name": "introduction.js",
+  "version": "0.1.0",
+  "description": "Introductions for websites to guide step-by-step your users.",
+  "main": ["src/introduction.js", "introduction.angular.js"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexandre-io/introduction.js.git"
+  },
+  "author": "Alexandre-io",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.11.0"
+  }
+}

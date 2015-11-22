@@ -1,0 +1,21 @@
+{
+  "name": "introduction.js",
+  "authors": [
+    "Alexandre-io"
+  ],
+  "description": "Introductions for websites to guide step-by-step your users.",
+  "main": ["src/introduction.js", "introduction.angular.js"],
+  "moduleType": [],
+  "keywords": [
+    "introduction", "demo", "welcome", "tour"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

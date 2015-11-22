@@ -1,0 +1,109 @@
+<html lang="en" ng-app="StarterApp">
+
+<head>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc4/angular-material.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  <link href="../src/introduction.css" rel="stylesheet">
+  <meta name="viewport" content="initial-scale=1" />
+</head>
+
+<body layout="column" ng-controller="MyController">
+  <md-toolbar layout="row">
+    <div class="md-toolbar-tools">
+      <h1>Introduction.js</h1>
+    </div>
+  </md-toolbar>
+  <div layout="row" flex style="padding:16px;">
+    <div layout="column" flex id="content">
+      <md-content layout="column" flex class="md-padding">
+
+        <div class="page" ng-intro-options="IntroOptions" ng-intro-method="StartIntro" ng-intro-oncomplete="CompletedEvent" ng-intro-onexit="ExitEvent" ng-intro-onchange="ChangeEvent" ng-intro-onbeforechange="BeforeChangeEvent" ng-intro-onafterchange="AfterChangeEvent"
+        ng-intro-autostart="ShouldAutoStart">
+          <h1 id="step1">Untitled document</h1>
+          <p id="step2">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet
+            fermentum. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+          <p id="step3">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
+            et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+          <p id="step4">Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+        </div>
+
+      </md-content>
+    </div>
+  </div>
+  <!-- Angular Material Dependencies -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc4/angular-material.min.js"></script>
+
+  <script src="../src/introduction.js"></script>
+  <script src="../src/introduction.angular.js"></script>
+
+  <script>
+    var app = angular.module('StarterApp', ['ngMaterial', 'introduction.js']);
+
+    app.controller('MyController', function($scope) {
+      // Example with native version
+      $scope.CompletedEvent = function(scope) {
+        console.log("Completed Event called");
+      };
+
+      $scope.ExitEvent = function(scope) {
+        console.log("Exit Event called");
+      };
+
+      $scope.ChangeEvent = function(targetElement, scope) {
+        console.log("Change Event called");
+        console.log(targetElement); //The target element
+        console.log(this); //The IntroJS object
+      };
+
+      $scope.BeforeChangeEvent = function(targetElement, scope) {
+        console.log("Before Change Event called");
+        console.log(targetElement);
+      };
+
+      $scope.AfterChangeEvent = function(targetElement, scope) {
+        console.log("After Change Event called");
+        console.log(targetElement);
+      };
+
+      $scope.IntroOptions = {
+        steps: [
+          {
+            element: document.querySelector('#step1'),
+            intro: "This is the title!",
+            position: 'bottom'
+        },
+          {
+            element: document.querySelectorAll('#step2')[0],
+            intro: "This is the <b>first</b> paragraph!",
+            position: 'bottom'
+        },
+          {
+            element: '#step3',
+            intro: 'This is the second paragraph!',
+            position: 'top'
+        },
+          {
+            element: '#step4',
+            intro: "This is the last paragraph!",
+            position: 'top'
+        }
+        ],
+        showStepNumbers: false,
+        exitOnOverlayClick: true,
+        exitOnEsc: true,
+        nextLabel: 'Next',
+        prevLabel: 'Previous',
+        skipLabel: 'Skip',
+        doneLabel: 'Done'
+      };
+
+      $scope.ShouldAutoStart = true;
+    });
+  </script>
+</body>
+
+</html>
