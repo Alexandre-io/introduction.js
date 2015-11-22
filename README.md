@@ -7,13 +7,16 @@ Was inspired from [intro.js](https://github.com/usablica/intro.js) and [angular-
 
 ### Without framework
 
-**1)** Include `introduction.min.js` and `introduction.min.css` in your page.
-**2)** Add `data-intro` and `data-step` to your HTML elements. (cf. examples)
+**1** - Include `introduction.min.js` and `introduction.min.css` in your page.
+
+**2** - Add `data-intro` and `data-step` to your HTML elements. (cf. examples)
 
 ### With AngularJS
-**1)** Include `introduction.min.js` and `introduction.min.css` in your page.
-**2)** Include `introduction.js` into your angular.module.
-**3)** Add directives `ng-intro-options` and `ng-intro-method` to your HTML elements in a controller. (cf. examples)
+**1** - Include `introduction.min.js` and `introduction.min.css` in your page.
+
+**2** - Include `introduction.js` into your angular.module.
+
+**3** - Add directives `ng-intro-options` and `ng-intro-method` to your HTML elements in a controller. (cf. examples)
 
 
 ## Native API
