@@ -3,8 +3,8 @@
  * https://github.com/Alexandre-io/introduction.js
  * MIT licensed
  */
- 
- .introjs-overlay {
+
+.introjs-overlay {
   position: absolute;
   z-index: 999;
   background-color: #000;
@@ -34,12 +34,14 @@
   -ms-transform: none !important;
   -o-transform: none !important;
   transform: none !important;
+  overflow: hidden!important;
 }
 
 .introjs-showElement,
 tr.introjs-showElement > td,
 tr.introjs-showElement > th {
   z-index: 9999 !important;
+  display: absolute;
 }
 
 .introjs-disableInteraction {
@@ -322,12 +324,4 @@ tr.introjs-showElement > th {
   line-height: 10px;
   text-align: center;
   background-color: #08c;
-}
-
-.introjsFloatingElement {
-  position: absolute;
-  height: 0;
-  width: 0;
-  left: 50%;
-  top: 50%;
 }
