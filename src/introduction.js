@@ -60,6 +60,8 @@
       showBullets: true,
       /* Show tour progress? */
       showProgress: false,
+      /* Show arrow to dialog */
+      showArrow: false,
       /* Scroll to highlighted element? */
       scrollToElement: true,
       /* Set the overlay opacity */
@@ -509,7 +511,9 @@
     var tooltipLayerStyleLeft = 0;
     switch (currentTooltipPosition) {
       case 'top':
-        arrowLayer.className = 'introjs-arrow bottom';
+        if (this._options.showArrow) {
+          arrowLayer.className = 'introjs-arrow bottom';
+        }
 
         tooltipLayerStyleLeft = 15;
         _checkRight(targetOffset, tooltipLayerStyleLeft, tooltipOffset, windowSize, tooltipLayer);
@@ -520,10 +524,12 @@
         if (targetOffset.top + tooltipOffset.height > windowSize.height) {
           // In this case, right would have fallen below the bottom of the screen.
           // Modify so that the bottom of the tooltip connects with the target
-          arrowLayer.className = "introjs-arrow left-bottom";
+          if (this._options.showArrow) {
+            arrowLayer.className = "introjs-arrow left-bottom";
+          }
           tooltipLayer.style.top = "-" + (tooltipOffset.height - targetOffset.height - 20) + "px";
         }
-        else {
+        else if (this._options.showArrow) {
           arrowLayer.className = 'introjs-arrow left';
         }
         break;
@@ -536,10 +542,13 @@
           // In this case, left would have fallen below the bottom of the screen.
           // Modify so that the bottom of the tooltip connects with the target
           tooltipLayer.style.top = "-" + (tooltipOffset.height - targetOffset.height - 20) + "px";
-          arrowLayer.className = 'introjs-arrow right-bottom';
+          if (this._options.showArrow) {
+            arrowLayer.className = 'introjs-arrow right-bottom';
+          }
         }
-        else {
+        else if (this._options.showArrow) {
           arrowLayer.className = 'introjs-arrow right';
+
         }
         tooltipLayer.style.right = (targetOffset.width + 20) + 'px';
 
@@ -560,7 +569,9 @@
 
         break;
       case 'bottom-right-aligned':
-        arrowLayer.className = 'introjs-arrow top-right';
+        if (this._options.showArrow) {
+          arrowLayer.className = 'introjs-arrow top-right';
+        }
 
         var tooltipLayerStyleRight = 0;
         _checkLeft(targetOffset, tooltipLayerStyleRight, tooltipOffset, tooltipLayer);
@@ -568,7 +579,9 @@
         break;
 
       case 'bottom-middle-aligned':
-        arrowLayer.className = 'introjs-arrow top-middle';
+        if (this._options.showArrow) {
+          arrowLayer.className = 'introjs-arrow top-middle';
+        }
 
         var tooltipLayerStyleLeftRight = targetOffset.width / 2 - tooltipOffset.width / 2;
         if (_checkLeft(targetOffset, tooltipLayerStyleLeftRight, tooltipOffset, tooltipLayer)) {
@@ -578,7 +591,9 @@
         tooltipLayer.style.top = (targetOffset.height + 20) + 'px';
         break;
       default:
-        arrowLayer.className = 'introjs-arrow top';
+        if (this._options.showArrow) {
+          arrowLayer.className = 'introjs-arrow top';
+        }
 
         _checkRight(targetOffset, tooltipLayerStyleLeft, tooltipOffset, windowSize, tooltipLayer);
         tooltipLayer.style.top = (targetOffset.height + 20) + 'px';
