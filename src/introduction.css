@@ -325,3 +325,11 @@ tr.introjs-showElement > th {
   text-align: center;
   background-color: #08c;
 }
+
+.introjsFloatingElement {
+  position: absolute;
+  height: 0;
+  width: 0;
+  left: 50%;
+  top: 50%;
+}
