@@ -1,4 +1,10 @@
-.introjs-overlay {
+/**
+ * Introduction.js
+ * https://github.com/Alexandre-io/introduction.js
+ * MIT licensed
+ */
+ 
+ .introjs-overlay {
   position: absolute;
   z-index: 999;
   background-color: #000;

@@ -8,10 +8,10 @@
   "use strict";
 
   if (typeof define === 'function' && define.amd) {
-    define(["angular", "intro"], factory);
+    define(["angular", "introduction.js"], factory);
   }
   else if (typeof exports === 'object') {
-    module.exports = factory(require('angular'), require('intro'));
+    module.exports = factory(require('angular'), require('introduction.js'));
   }
   else {
     root.angularIntroductionJs = factory(root.angular, root.introductionjs);

@@ -1,8 +1,8 @@
 {
   "name": "introduction.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Introductions for websites to guide step-by-step your users.",
-  "main": ["src/introduction.js", "introduction.angular.js"],
+  "main": ["src/introduction.js", "src/introduction.angular.js", "src/introduction.css"],
   "scripts": {
     "test": "grunt test"
   },

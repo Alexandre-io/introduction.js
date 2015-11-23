@@ -18,6 +18,10 @@ Was inspired from [intro.js](https://github.com/usablica/intro.js) and [angular-
 
 **3** - Add directives `ng-intro-options` and `ng-intro-method` to your HTML elements in a controller. (cf. examples)
 
+## Install
+```javascript
+    bower install introduction.js --save
+````
 
 ## Native API
 
@@ -350,7 +354,7 @@ Then in your controller, you can force exit using
 
 ## Tests
 ```javascript
-    grunt test
+    npm test
 ````
 
 ## Build

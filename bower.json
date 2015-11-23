@@ -4,7 +4,7 @@
     "Alexandre-io"
   ],
   "description": "Introductions for websites to guide step-by-step your users.",
-  "main": ["src/introduction.js", "introduction.angular.js"],
+  "main": ["src/introduction.js", "src/introduction.angular.js", "src/introduction.css"],
   "moduleType": [],
   "keywords": [
     "introduction", "demo", "welcome", "tour"
