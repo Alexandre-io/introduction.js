@@ -158,7 +158,7 @@
         if (currentEl.getAttribute('data-step') === null) {
 
           while (true) {
-            if (typeof introItems[nextStep] == 'undefined') {
+            if (typeof introItems[nextStep] === 'undefined') {
               break;
             }
             else {
@@ -251,7 +251,7 @@
         }
       };
 
-      self._onResize = function(e) {
+      self._onResize = function() {
         _setHelperLayerPosition.call(self, document.querySelector('.introjs-helperLayer'));
         _setHelperLayerPosition.call(self, document.querySelector('.introjs-tooltipReferenceLayer'));
       };
@@ -302,7 +302,7 @@
     }
     var temp = {};
     for (var key in object) {
-      if (typeof(jQuery) != 'undefined' && object[key] instanceof jQuery) {
+      if (typeof(jQuery) !== 'undefined' && object[key] instanceof jQuery) {
         temp[key] = object[key];
       }
       else {
@@ -486,7 +486,9 @@
     }
 
     //prevent error when `this._currentStep` is undefined
-    if (!this._introItems[this._currentStep]) return;
+    if (!this._introItems[this._currentStep]) {
+      return;
+    }
 
     //if we have a custom css class for each step
     currentStepObj = this._introItems[this._currentStep];
@@ -500,8 +502,8 @@
     tooltipLayer.className = ('introjs-tooltip ' + tooltipCssClass).replace(/^\s+|\s+$/g, '');
 
     currentTooltipPosition = this._introItems[this._currentStep].position;
-    if ((currentTooltipPosition == "auto" || this._options.tooltipPosition == "auto")) {
-      if (currentTooltipPosition != "floating") { // Floating is always valid, no point in calculating
+    if ((currentTooltipPosition === "auto" || this._options.tooltipPosition == "auto")) {
+      if (currentTooltipPosition !== "floating") { // Floating is always valid, no point in calculating
         currentTooltipPosition = _determineAutoPosition.call(this, targetElement, tooltipLayer, currentTooltipPosition);
       }
     }
@@ -688,7 +690,7 @@
     }
 
     // If the requested position is in the list, replace our calculated choice with that
-    if (desiredTooltipPosition && desiredTooltipPosition != "auto") {
+    if (desiredTooltipPosition && desiredTooltipPosition !== "auto") {
       if (possiblePositions.indexOf(desiredTooltipPosition) > -1) {
         calculatedPosition = desiredTooltipPosition;
       }
@@ -725,7 +727,7 @@
         elementPosition = _getOffset(currentElement.element),
         widthHeightPadding = 10;
 
-      if (currentElement.position == 'floating') {
+      if (currentElement.position === 'floating') {
         widthHeightPadding = 0;
       }
 
@@ -846,7 +848,9 @@
 
         //show the tooltip
         oldtooltipContainer.style.opacity = 1;
-        if (oldHelperNumberLayer) oldHelperNumberLayer.style.opacity = 1;
+        if (oldHelperNumberLayer) {
+          oldHelperNumberLayer.style.opacity = 1;
+        }
 
         //reset button focus
         if (self._options.showSkipButton && nextTooltipButton.tabIndex === -1) {
@@ -902,7 +906,9 @@
           self.goToStep(this.getAttribute('data-stepnumber'));
         }; // jshint ignore:line
 
-        if (l === (targetElement.step - 1)) anchorLink.className = 'active';
+        if (l === (targetElement.step - 1)) {
+          anchorLink.className = 'active';
+        }
 
         anchorLink.href = 'javascript:void(0);'; // jshint ignore:line
         anchorLink.innerHTML = "&nbsp;";
@@ -950,10 +956,10 @@
       nextTooltipButton = document.createElement('a');
 
       nextTooltipButton.onclick = function() {
-        if (!self._options.showSkipButton && self._introItems.length - 1 == self._currentStep && typeof(self._introCompleteCallback) === 'function') {
+        if (!self._options.showSkipButton && self._introItems.length - 1 === self._currentStep && typeof(self._introCompleteCallback) === 'function') {
           self._introCompleteCallback.call(self);
         }
-        if (!self._options.showSkipButton && self._introItems.length - 1 != self._currentStep && typeof(self._introExitCallback) === 'function') {
+        if (!self._options.showSkipButton && self._introItems.length - 1 !== self._currentStep && typeof(self._introExitCallback) === 'function') {
           self._introExitCallback.call(self);
         }
         if (self._introItems.length - 1 != self._currentStep) {
@@ -992,11 +998,11 @@
         skipTooltipButton.innerHTML = this._options.skipLabel;
 
         skipTooltipButton.onclick = function() {
-          if (self._introItems.length - 1 == self._currentStep && typeof(self._introCompleteCallback) === 'function') {
+          if (self._introItems.length - 1 === self._currentStep && typeof(self._introCompleteCallback) === 'function') {
             self._introCompleteCallback.call(self);
           }
 
-          if (self._introItems.length - 1 != self._currentStep && typeof(self._introExitCallback) === 'function') {
+          if (self._introItems.length - 1 !== self._currentStep && typeof(self._introExitCallback) === 'function') {
             self._introExitCallback.call(self);
           }
 
@@ -1036,7 +1042,7 @@
         nextTooltipButton.innerHTML = this._options.nextLabel;
       }
     }
-    else if (this._introItems.length - 1 == this._currentStep || this._introItems.length == 1) {
+    else if (this._introItems.length - 1 === this._currentStep || this._introItems.length === 1) {
       if (this._options.showSkipButton) {
         skipTooltipButton.innerHTML = this._options.doneLabel;
         nextTooltipButton.className = 'introjs-button introjs-nextbutton introjs-disabled';
@@ -1074,7 +1080,9 @@
 
     var parentElm = targetElement.element.parentNode;
     while (parentElm !== null) {
-      if (parentElm.tagName.toLowerCase() === 'body') break;
+      if (parentElm.tagName.toLowerCase() === 'body') {
+        break;
+      }
 
       //fix The Stacking Contenxt problem.
       //More detail: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context
@@ -1340,8 +1348,9 @@
               break;
             case 'touchend':
               event_handle.touches[event.type] = true;
-              if (!event_handle.touches.touchmove.entered)
+              if (!event_handle.touches.touchmove.entered) {
                 break;
+              }
               event_handle._y_diff = event_handle.touches.touchstart.y > event_handle.touches.touchmove.y ? event_handle.touches.touchstart.y - event_handle.touches.touchmove.y : event_handle.touches.touchmove.y - event_handle.touches.touchstart.y;
               event_handle._x_diff = event_handle.touches.touchstart.x > event_handle.touches.touchmove.x ? event_handle.touches.touchstart.x - event_handle.touches.touchmove.x : event_handle.touches.touchmove.x - event_handle.touches.touchstart.x;
               if (event_handle.touches.touchstart.x > -1 && event_handle.touches.touchmove.x > -1 && event_handle._x_diff > event_handle._x_min_length && event_handle._x_diff >= event_handle._y_diff) {
