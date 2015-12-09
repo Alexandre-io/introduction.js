@@ -962,7 +962,7 @@
         if (!self._options.showSkipButton && self._introItems.length - 1 !== self._currentStep && typeof(self._introExitCallback) === 'function') {
           self._introExitCallback.call(self);
         }
-        if (self._introItems.length - 1 != self._currentStep) {
+        if (self._introItems.length - 1 !== self._currentStep) {
           _nextStep.call(self);
         }
         else if (!self._options.showSkipButton) {
