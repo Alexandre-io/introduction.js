@@ -121,6 +121,7 @@ tr.introjs-showElement > th {
   width: 20px;
   height: 20px;
   line-height: 20px;
+  box-sizing: border-box;
   border: 3px solid white;
   border-radius: 50%;
   filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff3019', endColorstr='#cf0404', GradientType=0);
