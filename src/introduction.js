@@ -721,7 +721,9 @@
   function _setHelperLayerPosition(helperLayer) {
     if (helperLayer) {
       //prevent error when `this._currentStep` in undefined
-      if (!this._introItems[this._currentStep]) return;
+      if (!this._introItems[this._currentStep]) {
+        return;
+      }
 
       var currentElement = this._introItems[this._currentStep],
         elementPosition = _getOffset(currentElement.element),
