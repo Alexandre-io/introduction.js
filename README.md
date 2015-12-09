@@ -1,4 +1,4 @@
-# introduction.js [![Build Status](https://travis-ci.org/Alexandre-io/introduction.js.svg)](https://travis-ci.org/Alexandre-io/introduction.js)
+# introduction.js [![Build Status](https://travis-ci.org/Alexandre-io/introduction.js.svg)](https://travis-ci.org/Alexandre-io/introduction.js) [![Codacy Badge](https://api.codacy.com/project/badge/grade/b39eadeb3b9346bc85ba05e42e5f6739)](https://www.codacy.com/app/alexandre_io/introduction-js)
 Introductions for websites to guide step-by-step your users.
 
 Was inspired from [intro.js](https://github.com/usablica/intro.js) and [angular-intro.js](https://github.com/mendhak/angular-intro.js)
