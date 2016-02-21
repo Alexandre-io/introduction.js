@@ -10,12 +10,10 @@
   if (typeof exports === 'object') {
     // CommonJS
     factory(exports);
-  }
-  else if (typeof define === 'function' && define.amd) {
+  } else if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['exports'], factory);
-  }
-  else {
+  } else {
     // Browser globals
     factory(root);
   }
@@ -122,8 +120,7 @@
         }
       }
 
-    }
-    else {
+    } else {
       //use steps from data-* annotations
       var allIntroSteps = targetElm.querySelectorAll('*[data-intro]');
       //if there's no element to intro
@@ -160,8 +157,7 @@
           while (true) {
             if (typeof introItems[nextStep] === 'undefined') {
               break;
-            }
-            else {
+            } else {
               nextStep++;
             }
           }
@@ -209,23 +205,19 @@
             self._introExitCallback.call(self);
           }
           _exitIntro.call(self, targetElm);
-        }
-        else if (e.keyCode === 37) {
+        } else if (e.keyCode === 37) {
           //left arrow
           _previousStep.call(self);
-        }
-        else if (e.keyCode === 39) {
+        } else if (e.keyCode === 39) {
           //right arrow
           _nextStep.call(self);
-        }
-        else if (e.keyCode === 13) {
+        } else if (e.keyCode === 13) {
           //srcElement === ie
           var target = e.target || e.srcElement;
           if (target && target.className.indexOf('introjs-prevbutton') > 0) {
             //user hit enter while focusing on previous button
             _previousStep.call(self);
-          }
-          else if (target && target.className.indexOf('introjs-skipbutton') > 0) {
+          } else if (target && target.className.indexOf('introjs-skipbutton') > 0) {
             //user hit enter while focusing on skip button
             if (self._introItems.length - 1 === self._currentStep && typeof(self._introCompleteCallback) === 'function') {
               self._introCompleteCallback.call(self);
@@ -235,8 +227,7 @@
               self._introExitCallback.call(self);
             }
             _exitIntro.call(self, targetElm);
-          }
-          else {
+          } else {
             //default behavior for responding to enter
             _nextStep.call(self);
           }
@@ -244,8 +235,7 @@
           //prevent default behaviour on hitting Enter, to prevent steps being skipped in some browsers
           if (e.preventDefault) {
             e.preventDefault();
-          }
-          else {
+          } else {
             e.returnValue = false;
           }
         }
@@ -262,8 +252,7 @@
         }
         //for window resize
         window.addEventListener('resize', self._onResize, true);
-      }
-      else if (document.attachEvent) { //IE
+      } else if (document.attachEvent) { //IE
         if (this._options.keyboardNavigation) {
           document.attachEvent('onkeydown', self._onKeyDown);
         }
@@ -280,8 +269,7 @@
         callback: function(direction) {
           if (direction === 'right') {
             _nextStep.call(self);
-          }
-          else {
+          } else {
             _previousStep.call(self);
           }
         }
@@ -304,8 +292,7 @@
     for (var key in object) {
       if (typeof(jQuery) !== 'undefined' && object[key] instanceof jQuery) {
         temp[key] = object[key];
-      }
-      else {
+      } else {
         temp[key] = _cloneObject(object[key]);
       }
     }
@@ -336,8 +323,7 @@
 
     if (typeof(this._currentStep) === 'undefined') {
       this._currentStep = 0;
-    }
-    else {
+    } else {
       ++this._currentStep;
     }
 
@@ -443,8 +429,7 @@
     //clean listeners
     if (window.removeEventListener) {
       window.removeEventListener('keydown', this._onKeyDown, true);
-    }
-    else if (document.detachEvent) { //IE
+    } else if (document.detachEvent) { //IE
       document.detachEvent('onkeydown', this._onKeyDown);
     }
 
@@ -494,8 +479,7 @@
     currentStepObj = this._introItems[this._currentStep];
     if (typeof(currentStepObj.tooltipClass) === 'string') {
       tooltipCssClass = currentStepObj.tooltipClass;
-    }
-    else {
+    } else {
       tooltipCssClass = this._options.tooltipClass;
     }
 
@@ -530,8 +514,7 @@
             arrowLayer.className = "introjs-arrow left-bottom";
           }
           tooltipLayer.style.top = "-" + (tooltipOffset.height - targetOffset.height - 20) + "px";
-        }
-        else if (this._options.showArrow) {
+        } else if (this._options.showArrow) {
           arrowLayer.className = 'introjs-arrow left';
         }
         break;
@@ -547,8 +530,7 @@
           if (this._options.showArrow) {
             arrowLayer.className = 'introjs-arrow right-bottom';
           }
-        }
-        else if (this._options.showArrow) {
+        } else if (this._options.showArrow) {
           arrowLayer.className = 'introjs-arrow right';
 
         }
@@ -661,8 +643,7 @@
     if (targetOffset.left + tooltipWidth > windowSize.width || ((targetOffset.left + (targetOffset.width / 2)) - tooltipWidth) < 0) {
       _removeEntry(possiblePositions, "bottom");
       _removeEntry(possiblePositions, "top");
-    }
-    else {
+    } else {
       // Check for space below
       if ((targetOffset.height + targetOffset.top + tooltipHeight) > windowSize.height) {
         _removeEntry(possiblePositions, "bottom");
@@ -858,15 +839,13 @@
         if (self._options.showSkipButton && nextTooltipButton.tabIndex === -1) {
           //tabindex of -1 means we are at the end of the tour - focus on skip / done
           skipTooltipButton.focus();
-        }
-        else {
+        } else {
           //still in the tour, focus on next
           nextTooltipButton.focus();
         }
       }, 300);
 
-    }
-    else {
+    } else {
       var helperLayer = document.createElement('div'),
         referenceLayer = document.createElement('div'),
         arrowLayer = document.createElement('div'),
@@ -966,8 +945,7 @@
         }
         if (self._introItems.length - 1 !== self._currentStep) {
           _nextStep.call(self);
-        }
-        else if (!self._options.showSkipButton) {
+        } else if (!self._options.showSkipButton) {
           _exitIntro.call(self, self._targetElement);
         }
       };
@@ -1039,30 +1017,25 @@
       nextTooltipButton.className = 'introjs-button introjs-nextbutton';
       if (this._options.showSkipButton) {
         skipTooltipButton.innerHTML = this._options.skipLabel;
-      }
-      else {
+      } else {
         nextTooltipButton.innerHTML = this._options.nextLabel;
       }
-    }
-    else if (this._introItems.length - 1 === this._currentStep || this._introItems.length === 1) {
+    } else if (this._introItems.length - 1 === this._currentStep || this._introItems.length === 1) {
       if (this._options.showSkipButton) {
         skipTooltipButton.innerHTML = this._options.doneLabel;
         nextTooltipButton.className = 'introjs-button introjs-nextbutton introjs-disabled';
-      }
-      else {
+      } else {
         nextTooltipButton.innerHTML = this._options.doneLabel;
         nextTooltipButton.className = 'introjs-button introjs-nextbutton';
       }
       prevTooltipButton.className = 'introjs-button introjs-prevbutton';
       nextTooltipButton.tabIndex = '-1';
-    }
-    else {
+    } else {
       prevTooltipButton.className = 'introjs-button introjs-prevbutton';
       nextTooltipButton.className = 'introjs-button introjs-nextbutton';
       if (this._options.showSkipButton) {
         skipTooltipButton.innerHTML = this._options.skipLabel;
-      }
-      else {
+      } else {
         nextTooltipButton.innerHTML = this._options.nextLabel;
       }
     }
@@ -1109,8 +1082,7 @@
         window.scrollBy(0, top - 30); // 30px padding from edge to look nice
 
         //Scroll down
-      }
-      else {
+      } else {
         window.scrollBy(0, bottom + 100); // 70px + 30px padding from edge to look nice
       }
     }
@@ -1134,16 +1106,14 @@
     var propValue = '';
     if (element.currentStyle) { //IE
       propValue = element.currentStyle[propName];
-    }
-    else if (document.defaultView && document.defaultView.getComputedStyle) { //Others
+    } else if (document.defaultView && document.defaultView.getComputedStyle) { //Others
       propValue = document.defaultView.getComputedStyle(element, null).getPropertyValue(propName);
     }
 
     //Prevent exception in IE
     if (propValue && propValue.toLowerCase) {
       return propValue.toLowerCase();
-    }
-    else {
+    } else {
       return propValue;
     }
   }
@@ -1162,8 +1132,7 @@
         width: window.innerWidth,
         height: window.innerHeight
       };
-    }
-    else {
+    } else {
       var D = document.documentElement;
       return {
         width: D.clientWidth,
@@ -1210,8 +1179,7 @@
     if (targetElm.tagName.toLowerCase() === 'body') {
       styleText += 'top: 0;bottom: 0; left: 0;right: 0;position: fixed;';
       overlayLayer.setAttribute('style', styleText);
-    }
-    else {
+    } else {
       //set overlay layer position
       var elementPosition = _getOffset(targetElm);
       if (elementPosition) {
@@ -1383,19 +1351,16 @@
       //Ok, create a new instance
       return new IntroJs(targetElm);
 
-    }
-    else if (typeof(targetElm) === 'string') {
+    } else if (typeof(targetElm) === 'string') {
       //select the target element with query selector
       var targetElement = document.querySelector(targetElm);
 
       if (targetElement) {
         return new IntroJs(targetElement);
-      }
-      else {
+      } else {
         throw new Error('There is no element with given selector.');
       }
-    }
-    else {
+    } else {
       return new IntroJs(document.body);
     }
   };
@@ -1441,8 +1406,7 @@
     onbeforechange: function(providedCallback) {
       if (typeof(providedCallback) === 'function') {
         this._introBeforeChangeCallback = providedCallback;
-      }
-      else {
+      } else {
         throw new Error('Provided callback for onbeforechange was not a function');
       }
       return this;
@@ -1450,8 +1414,7 @@
     onchange: function(providedCallback) {
       if (typeof(providedCallback) === 'function') {
         this._introChangeCallback = providedCallback;
-      }
-      else {
+      } else {
         throw new Error('Provided callback for onchange was not a function.');
       }
       return this;
@@ -1459,8 +1422,7 @@
     onafterchange: function(providedCallback) {
       if (typeof(providedCallback) === 'function') {
         this._introAfterChangeCallback = providedCallback;
-      }
-      else {
+      } else {
         throw new Error('Provided callback for onafterchange was not a function');
       }
       return this;
@@ -1468,8 +1430,7 @@
     oncomplete: function(providedCallback) {
       if (typeof(providedCallback) === 'function') {
         this._introCompleteCallback = providedCallback;
-      }
-      else {
+      } else {
         throw new Error('Provided callback for oncomplete was not a function.');
       }
       return this;
@@ -1477,8 +1438,7 @@
     onexit: function(providedCallback) {
       if (typeof(providedCallback) === 'function') {
         this._introExitCallback = providedCallback;
-      }
-      else {
+      } else {
         throw new Error('Provided callback for onexit was not a function.');
       }
       return this;
