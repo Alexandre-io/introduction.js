@@ -904,9 +904,9 @@
         var innerLi = document.createElement('li');
         var anchorLink = document.createElement('a');
 
-        anchorLink.onclick = function() {
+        anchorLink.onclick = function() { // jshint ignore:line
           self.goToStep(this.getAttribute('data-stepnumber'));
-        }; // jshint ignore:line
+        };
 
         if (l === (targetElement.step - 1)) {
           anchorLink.className = 'active';
