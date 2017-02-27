@@ -17,8 +17,9 @@
     root.angularIntroductionJs = factory(root.angular, root.introductionjs);
   }
 }(this, function(angular, introductionjs) {
-  if (typeof introductionjs == 'object')
+  if (typeof introductionjs === 'object') {
     introductionjs = introductionjs.introductionjs;
+  }
 
   var ngIntroDirective = angular.module('introduction.js', []);
 
@@ -41,7 +42,7 @@
         ngIntroAutostart: '=',
         ngIntroAutorefresh: '='
       },
-      link: function(scope, element, attrs) {
+      link: function(scope, element) {
 
         var intro;
 
@@ -146,8 +147,9 @@
         });
 
         scope.$on('$locationChangeSuccess', function() {
-          if (typeof intro !== 'undefined')
+          if (typeof intro !== 'undefined') {
             intro.exit();
+          }
         });
       }
     };
