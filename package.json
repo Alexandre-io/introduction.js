@@ -1,6 +1,6 @@
 {
   "name": "introduction.js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Introductions for websites to guide step-by-step your users.",
   "main": ["src/introduction.js", "src/introduction.angular.js", "src/introduction.css"],
   "scripts": {
@@ -13,9 +13,9 @@
   "author": "Alexandre-io",
   "license": "MIT",
   "devDependencies": {
-    "grunt": "0.4.5",
-    "grunt-contrib-cssmin": "~1.0.2",
+    "grunt": "1.0.1",
+    "grunt-contrib-cssmin": "~2.0.0",
     "grunt-contrib-jshint": "~1.1.0",
-    "grunt-contrib-uglify": "~2.0.0"
+    "grunt-contrib-uglify": "~2.1.0"
   }
 }
