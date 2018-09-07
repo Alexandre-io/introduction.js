@@ -14,7 +14,7 @@
   "license": "MIT",
   "devDependencies": {
     "grunt": "1.0.3",
-    "grunt-contrib-cssmin": "~2.2.0",
+    "grunt-contrib-cssmin": "~3.0.0",
     "grunt-contrib-jshint": "~1.1.0",
     "grunt-contrib-uglify": "~3.4.0"
   }
