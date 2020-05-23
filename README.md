@@ -1,4 +1,4 @@
-# introduction.js [![Build Status](https://travis-ci.org/Alexandre-io/introduction.js.svg)](https://travis-ci.org/Alexandre-io/introduction.js) [![Codacy Badge](https://api.codacy.com/project/badge/grade/b39eadeb3b9346bc85ba05e42e5f6739)](https://www.codacy.com/app/alexandre_io/introduction-js) [![Greenkeeper badge](https://badges.greenkeeper.io/Alexandre-io/introduction.js.svg)](https://greenkeeper.io/)
+# introduction.js [![Build Status](https://travis-ci.org/Alexandre-io/introduction.js.svg)](https://travis-ci.org/Alexandre-io/introduction.js) [![Codacy Badge](https://api.codacy.com/project/badge/grade/b39eadeb3b9346bc85ba05e42e5f6739)](https://www.codacy.com/app/alexandre_io/introduction-js) 
 
 Introductions for websites to guide step-by-step your users.
 
